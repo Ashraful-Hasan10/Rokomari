@@ -1,0 +1,46 @@
+.admin{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.side-bar{
+    width: 20%;
+    height: 100vh;
+    background-color: #0bc1f8;
+}
+
+.home-link{
+    background-color: #078cfa;
+    color: white;
+    width: 20%;
+    margin: 0;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+@media (max-width: 768px){
+    .side-bar{
+        width: 100%;
+        height: 20vh;
+    }
+    .home-link{
+        width: 100%;
+    }
+    .side-bar li{
+        display: inline-block;
+    }
+}
+
+.side-bar *{
+    text-decoration: none;
+}
+.side-bar li{
+    color: white;
+    padding: 1rem;
+}
+.side-bar li *{
+    padding: 0 5px;
+}
+.side-bar li:hover{
+    background-color: darkcyan;
+}

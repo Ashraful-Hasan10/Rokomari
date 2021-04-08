@@ -1,0 +1,44 @@
+.cover-photo img{
+    
+    width: 225px;
+    height: 300px;
+    border-radius: 10px;
+}
+.cover-photo{
+    background-color: rgba(194, 175, 175, 0.116);
+    border-radius: 10px;
+    padding: 10px 0;
+    
+}
+.book{
+    width: 25%;
+    min-height: 400px;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgb(213, 233, 252);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.book-bottom{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.book-bottom button{
+ color:rgb(4, 59, 59);
+ width:70px;
+ height:60px;
+border-radius: 10px;
+}
+@media (max-width: 768px){
+    .book{
+        width: 95%;
+    }
+}

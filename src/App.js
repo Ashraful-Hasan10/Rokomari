@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import { createContext, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Admin from './components/Admin/Admin';
+import Checkout from './components/CheckOut/CheckOut';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Nav from './components/Nav/Nav';
+import Orders from './components/Order/Order';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+export const userContext = createContext();
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [currentUser, setCurrentUser] = useState({});
+    return (
+        <div className="App">
+            <userContext.Provider value={[currentUser, setCurrentUser]}>
+                <Router>
+                    <Switch>
+                        <Route exact path="/">
+                            <Nav />
+                            <Home />
+                        </Route>
+                        <PrivateRoute path="/orders">
+                            <Nav />
+                            <Orders />
+                        </PrivateRoute>
+                        <PrivateRoute path="/checkout">
+                            <Nav />
+                            <Checkout />
+                        </PrivateRoute>
+                        <PrivateRoute path="/admin">
+                            <Admin />
+                        </PrivateRoute>
+                        <Route path="/login">
+                            <Nav />
+                            <Login />
+                        </Route>
+                    </Switch>
+                </Router>
+            </userContext.Provider>
+        </div>
+    );
 }
 
 export default App;
+
